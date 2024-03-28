@@ -1,34 +1,31 @@
 // Copyright 2021 NNTU-CS
+#include <iostream>
 #include <string>
 #include <map>
 #include "tstack.h"
-#include <iostream>
 
 std::string infx2pstfx(std::string inf) {
-TStack<char, 100> stack1; 
-    std::string pst; 
+TStack<char, 100> stack1;
+    std::string pst;
     for (int i = 0; i < inf.length(); i++) {
         if (inf[i] >= '0' && inf[i] <= '9') {
             pst += inf[i];
-            pst += ' '; 
-        }
-        else if (inf[i] == '(') {
+            pst += ' ';
+        } else if (inf[i] == '(') {
             stack1.push('(');
-        }
-        else if (inf[i] == ')') {
+        } else if (inf[i] == ')') {
             while (!stack1.isempty() && stack1.get() != '(') {
                 pst += stack1.get();
-                pst += ' '; 
+                pst += ' ';
                 stack1.pop();
             }
             if (!stack1.isempty()) {
-                stack1.pop(); 
+                stack1.pop();
             }
-        }
-        else {
+        } else {
             while (!stack1.isempty() && stack1.get() != '(' && (inf[i] == '+' || stack1.get() == '*' || stack1.get() == '/')) {
                 pst += stack1.get();
-                pst += ' '; 
+                pst += ' ';
                 stack1.pop();
             }
             stack1.push(inf[i]);
@@ -48,8 +45,7 @@ int eval(std::string post) {
         char ch = post[i];
         if (isdigit(ch)) {
             stack2.push(ch - '0');
-        }
-        else if (ch == '+' || ch == '-' || ch == '/' || ch == '*') {
+        } else if (ch == '+' || ch == '-' || ch == '/' || ch == '*') {
             int operand2 = stack2.pop();
             int operand1 = stack2.pop();
             switch(ch) {

@@ -4,11 +4,11 @@
 
 template<typename T, int size>
 class TStack {
-private:
+  private:
     T* stackArray;
     int topIndex;
 
-public:
+  public:
     TStack() {
         stackArray = new T[size];
         topIndex = -1;
@@ -19,9 +19,7 @@ public:
     }
 
     void push(T item) {
-        if (topIndex == size - 1) {
-            std::cout << "Stack is full" << std::endl;
-        } else {
+        if (topIndex != size - 1) {
             topIndex++;
             stackArray[topIndex] = item;
         }
@@ -33,14 +31,12 @@ public:
         topIndex--;
         return element;
     } else {
-        std::cout << "Stack Underflow" << std::endl;
         return T();
     }
 }
 
     T get() const {
         if (topIndex == -1) {
-            std::cout << "Stack is empty" << std::endl;
             return T();
         } else {
             return stackArray[topIndex];
