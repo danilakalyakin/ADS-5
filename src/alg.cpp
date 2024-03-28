@@ -23,7 +23,7 @@ TStack<char, 100> stack1;
                 stack1.pop();
             }
         } else {
-            while (!stack1.isempty() && stack1.get() != '(' && (inf[i] == '+' || stack1.get() == '*' || stack1.get() == '/')) {
+            while (!stack1.isempty()&&stack1.get()!='('&&(inf[i] =='+'||stack1.get() =='*'||stack1.get()=='/')) {
                 pst += stack1.get();
                 pst += ' ';
                 stack1.pop();
@@ -48,7 +48,7 @@ int eval(std::string post) {
         } else if (ch == '+' || ch == '-' || ch == '/' || ch == '*') {
             int operand2 = stack2.pop();
             int operand1 = stack2.pop();
-            switch(ch) {
+            switch (ch) {
                 case '+':
                     stack2.push(operand1 + operand2);
                     break;
