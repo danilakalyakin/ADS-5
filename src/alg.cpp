@@ -23,7 +23,8 @@ TStack<char, 100> stack1;
               stack1.pop();
           }
       } else {
-          while (!stack1.isempty()&&stack1.get() != '('&&(inf[i] =='+'||stack1.get() =='*'||stack1.get()=='/')) {
+          while (!stack1.isempty() && stack1.get() != '(' && (inf[i] =='+' || stack1.get() =='*' || 
+          stack1.get() == '/')) {
               pst += stack1.get();
               pst += ' ';
               stack1.pop();
