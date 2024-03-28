@@ -4,7 +4,52 @@
 
 template<typename T, int size>
 class TStack {
-  // добавьте код стека
+private:
+    T* stackArray;
+    int topIndex;
+
+public:
+    TStack() {
+        stackArray = new T[size];
+        topIndex = -1;
+    }
+
+    ~TStack() {
+        delete[] stackArray;
+    }
+
+    void push(T item) {
+        if (topIndex == size - 1) {
+            std::cout << "Stack is full" << std::endl;
+        } else {
+            topIndex++;
+            stackArray[topIndex] = item;
+        }
+    }
+
+    T pop() {
+    if (topIndex != -1) {
+        T element = stackArray[topIndex];
+        topIndex--;
+        return element;
+    } else {
+        std::cout << "Stack Underflow" << std::endl;
+        return T();
+    }
+}
+
+    T get() const {
+        if (topIndex == -1) {
+            std::cout << "Stack is empty" << std::endl;
+            return T();
+        } else {
+            return stackArray[topIndex];
+        }
+    }
+
+    bool isempty() const {
+        return topIndex == -1;
+    }
 };
 
 #endif  // INCLUDE_TSTACK_H_
