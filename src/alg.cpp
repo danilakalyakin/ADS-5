@@ -40,10 +40,10 @@ TStack<char, 100> stack1;
   return pst;
 }
 
-int eval(std::string post) {
+int eval(std::string pref) {
   TStack<int, 100> stack2;
-  for (int i = 0; i < post.length(); i++) {
-      char ch = post[i];
+  for (int i = 0; i < pref.length(); i++) {
+      char ch = pref[i];
       if (isdigit(ch)) {
           stack2.push(ch - '0');
       } else if (ch == '+' || ch == '-' || ch == '/' || ch == '*') {
