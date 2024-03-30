@@ -38,6 +38,7 @@ TStack<char, 100> stack1;
       stack1.pop();
   }
   return pst;
+  return std::string("");
 }
 
 int eval(std::string pref) {
@@ -66,4 +67,5 @@ int eval(std::string pref) {
       }
   }
   return stack2.pop();
+  return 0;
 }
