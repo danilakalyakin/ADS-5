@@ -4,14 +4,11 @@
 
 template<typename T, int size>
 class TStack {
-
     private:
-  
       T* stackArray;
       int topIndex;
-
     public:
-
+    
       TStack() {
           stackArray = new T[size];
           topIndex = -1;
