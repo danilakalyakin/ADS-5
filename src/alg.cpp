@@ -5,7 +5,7 @@
 
 std::string infx2pstfx(std::string inf) {
 TStack<char, 100> stack1;
-  std::string pst;
+    std::string pst;
   for (int i = 0; i < inf.length(); i++) {
       if (inf[i] >= '0' && inf[i] <= '9') {
           pst += inf[i];
@@ -35,6 +35,9 @@ TStack<char, 100> stack1;
       pst += stack1.get();
       pst += ' ';
       stack1.pop();
+  }
+  if (!pst.empty()) {
+      pst.erase(pst.size() - 1);
   }
   return pst;
 }
